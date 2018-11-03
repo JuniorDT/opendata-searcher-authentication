@@ -1,6 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
+const config = require('./config.js');
 
 const app = express();
 
@@ -12,9 +13,9 @@ require('dotenv').config();
 
 //** Set values **//
 
-app.set('port', process.env.PORT || 3000);
-app.set('host', process.env.HOST_NAME || '127.0.0.1');
-app.set('env', process.env.MODE);
+app.set('port', config.port);
+app.set('host', config.host);
+app.set('env', config.mode);
 
 
 //** Database **//

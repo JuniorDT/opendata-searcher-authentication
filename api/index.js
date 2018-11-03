@@ -6,7 +6,7 @@ module.exports = function(app) {
     const recordApi = require('./record.js')(app);
 
     app
-        .post('/register', authControllers.registration)
+        .post('/registration', authControllers.registration)
         .post('/auth', Middlewares.verifyToken, authControllers.isAuth)
         .post('/login', authControllers.login)
         .post('/record/add', recordApi.createRecord)

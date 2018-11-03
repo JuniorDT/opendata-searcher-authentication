@@ -1,5 +1,6 @@
 const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
+const config = require('../config.js');
 const TIME = require('../constants/time.js');
 const User = require('../db/models/user.js');
 
@@ -24,7 +25,7 @@ module.exports = function(app) {
                 }
 
                 // creating token
-                const token = jwt.sign({id: user._id, name: user.login}, process.env.SECRET_KEY, {expiresIn: TIME.DAY});
+                const token = jwt.sign({id: user._id, name: user.login}, config.secret, {expiresIn: TIME.DAY});
 
                 res
                     .status(200)
@@ -78,7 +79,7 @@ module.exports = function(app) {
                         .send({auth: false, token: null})
                 }
 
-                const token = jwt.sign({id: user._id}, process.env.SECRET_KEY, {expiresIn: TIME.DAY});
+                const token = jwt.sign({id: user._id}, config.secret, {expiresIn: TIME.DAY});
 
                 res
                     .status(200)
