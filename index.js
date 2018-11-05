@@ -8,8 +8,6 @@ const app = express();
 
 //** Set environments variables **//
 
-require('dotenv').config();
-
 
 //** Set values **//
 

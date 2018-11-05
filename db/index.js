@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
 const config = require('../config.js');
+console.log(config);
 
 const defaultOptions = {
     useNewUrlParser: true,
